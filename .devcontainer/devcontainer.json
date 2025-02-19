@@ -1,0 +1,33 @@
+// From https://github.com/fluentrobotics/ros-devcontainer
+{
+    "name": "ros-humble",
+    // The following image needs to be built from the ros-devcontainer
+    // repository.
+    "image": "fluentrobotics/ros:humble",
+    // The following runtime arguments are adapted from the `enter-container.sh`
+    // script in the ros-devcontainer repository.
+    "runArgs": [
+        "--rm",
+        "--interactive",
+        "--tty",
+        "--env=TERM=xterm-256color",
+        "--network=host",
+        "--hostname=ros-humble",
+        "--ipc=host",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix:ro",
+        "--volume=/dev/dri:/dev/dri:ro",
+        "--env=DISPLAY=${localEnv:DISPLAY}",
+        "--group-add=sudo",
+        "--user=${localEnv:ROS_DEVCONTAINER_UID}",
+        "--volume=/etc/group:/etc/group:ro",
+        "--volume=/etc/passwd:/etc/passwd:ro",
+        "--volume=/etc/shadow:/etc/shadow:ro",
+        "--volume=${localEnv:HOME}:${localEnv:HOME}",
+        // "--runtime=nvidia",
+        // "--gpus=all",
+        // "--env=NVIDIA_DRIVER_CAPABILITIES=all",
+    ],
+    // Since we're mounting the whole user directory, we can work directly in
+    // the local user workspace path.
+    "workspaceFolder": "${localWorkspaceFolder}"
+}

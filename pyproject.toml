@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "fluentrobotics-icmpc-collab-transport"
+version = "0.1.0"
+description = ""
+authors = ["Elvin Yang <eyy@umich.edu>"]
+readme = "README.md"
+packages = [
+    { include = "fluentrobotics", from = "src"}
+]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+numpy = "^1.26"  # Numba 0.60 does not support Numpy 2.0
+scipy = "^1.14.1"
+loguru = "^0.7.2"
+numba = "^0.60.0"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.11.1"
+jupyter = "^1.1.1"
+pandas-stubs = "^2.2.2.240909"
+types-tqdm = "^4.66.0.20240417"
+types-seaborn = "^0.13.2.20240820"
+
+
+[tool.poetry.group.deployment.dependencies]
+pytorch-mppi = "^0.7.5"
+cooperative_transport = {path = "src/eleyng/table-carrying-ai", develop=true}
+
+
+[tool.poetry.group.evaluation.dependencies]
+rosbags = "^0.10.4"
+matplotlib = "^3.9.2"
+scipy = "^1.14.1"
+pandas = "^2.2.2"
+pyarrow = "^17.0.0"
+seaborn = "^0.13.2"
+pingouin = "^0.5.5"
+scikit-learn = "^1.5.2"
+tqdm = "^4.66.5"
+opencv-python-headless = "^4.10.0.84"
+av = "^14.0.0"
+imageio = "^2.36.1"
+pyyaml = "^6.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+disallow_any_generics = true
+disallow_untyped_defs = true
+warn_redundant_casts = true
+disallow_untyped_calls = true
+allow_redefinition = true
+namespace_packages = false

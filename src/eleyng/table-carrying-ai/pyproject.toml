@@ -1,17 +1,15 @@
-[tool.poetry]
+[project]
 name = "cooperative_transport"
 version = "0.0.1"
 description = "Custom environment and model for training RL agents for cooperative transport."
-authors = ["Eley Ng <eleyng@stanford.edu>", "Ziang Liu"]
+authors = [
+    { name = "Eley Ng", email = "eleyng@stanford.edu" },
+    { name = "Ziang Liu" },
+]
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "~3.10"
-torch = "^2.2.1"
-pytorch-lightning = "^2.2.1"
-numpy = "~1.26"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = "~=3.10"
+dependencies = [
+    "torch",
+    "pytorch-lightning",
+    "numpy~=1.26"
+]

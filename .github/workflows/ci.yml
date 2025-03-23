@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  # check-disk-usage:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Check Disk Usage
+  #       run: bash .github/workflow-scripts/00-check-disk-usage.sh
+  #     - name: Check things
+  #       run: |
+  #         sudo du -sh /usr/share/dotnet || true
+  #         sudo du -sh /usr/local/lib/android || true
+  #         sudo du -sh /opt/ghc || true
+  #         sudo du -sh /opt/hostedtoolcache/CodeQL || true
+  #         sudo du -sh /usr/share/miniconda || true
+  #         sudo du -sh /usr/local/share/vcpkg || true
+
+  ci:
+    runs-on: ubuntu-latest
+    container: ghcr.io/fluentrobotics/ros:humble
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect workspace
+        run: |
+          pwd
+          ls -lhF
+          bash .github/workflow-scripts/00-check-disk-usage.sh
+      - name: Install Dependencies
+        run: |
+          bash .github/workflow-scripts/01-install-dependencies.sh
+          bash .github/workflow-scripts/00-check-disk-usage.sh
+      - name: Download Dataset
+        run: |
+          bash .github/workflow-scripts/02-download-dataset.sh
+          bash .github/workflow-scripts/00-check-disk-usage.sh
+      - name: Extract Dataset
+        run: |
+          bash .github/workflow-scripts/03-extract-dataset.sh
+          bash .github/workflow-scripts/00-check-disk-usage.sh
+      - name: Run Analysis Scripts
+        run: |
+          bash .github/workflow-scripts/04-run-analysis-scripts.sh
+          bash .github/workflow-scripts/00-check-disk-usage.sh

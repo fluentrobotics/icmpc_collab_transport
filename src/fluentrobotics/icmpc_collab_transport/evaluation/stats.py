@@ -71,7 +71,7 @@ def run_parametric_tests(data: pd.DataFrame, dv: str) -> None:
         effsize="cohen",
         return_desc=True,
     )
-    print(pairwise)
+    print(pairwise.to_string())
 
 
 def run_nonparametric_tests(data: pd.DataFrame, dv: str) -> None:
@@ -114,4 +114,4 @@ def run_nonparametric_tests(data: pd.DataFrame, dv: str) -> None:
     pairwise[["mean(A)", "mean(B)", "std(A)", "std(B)", "cohen"]] = pairwise[
         ["mean(A)", "mean(B)", "std(A)", "std(B)", "cohen"]
     ].round(2)
-    print(pairwise)
+    print(pairwise.to_string())

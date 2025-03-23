@@ -1,53 +1,50 @@
-[tool.poetry]
+[project]
 name = "fluentrobotics-icmpc-collab-transport"
 version = "0.1.0"
-description = ""
-authors = ["Elvin Yang <eyy@umich.edu>"]
+description = "Implicit Communication in Human-Robot Collaborative Transport"
+authors = [{ name = "Elvin Yang", email = "eyy@umich.edu" }]
 readme = "README.md"
-packages = [
-    { include = "fluentrobotics", from = "src"}
+requires-python = "~=3.10"
+dependencies = [
+    "numpy~=1.26",   # Numba 0.60 does not support numpy 2.0
+    "scipy~=1.15",
+    "loguru",
+    "numba~=0.60.0",
 ]
 
-[tool.poetry.dependencies]
-python = "~3.10"
-numpy = "^1.26"  # Numba 0.60 does not support Numpy 2.0
-scipy = "^1.14.1"
-loguru = "^0.7.2"
-numba = "^0.60.0"
+[dependency-groups]
+dev = ["mypy", "jupyter", "pandas-stubs", "types-tqdm", "types-seaborn"]
+deployment = ["torch", "pytorch-mppi==0.7.5", "cooperative_transport"]
+evaluation = [
+    "rosbags",
+    "matplotlib",
+    "pandas",
+    "pyarrow",
+    "seaborn",
+    "pingouin",
+    "scikit-learn",
+    "tqdm",
+    "opencv-python-headless",
+    "av",
+    "imageio",
+    "pyyaml",
+]
 
+[tool.uv.sources]
+cooperative_transport = { path = "src/eleyng/table-carrying-ai", editable = true }
+torch = { index = "pytorch-cpu" }
 
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.11.1"
-jupyter = "^1.1.1"
-pandas-stubs = "^2.2.2.240909"
-types-tqdm = "^4.66.0.20240417"
-types-seaborn = "^0.13.2.20240820"
-
-
-[tool.poetry.group.deployment.dependencies]
-pytorch-mppi = "^0.7.5"
-cooperative_transport = {path = "src/eleyng/table-carrying-ai", develop=true}
-
-
-[tool.poetry.group.evaluation.dependencies]
-rosbags = "^0.10.4"
-matplotlib = "^3.9.2"
-scipy = "^1.14.1"
-pandas = "^2.2.2"
-pyarrow = "^17.0.0"
-seaborn = "^0.13.2"
-pingouin = "^0.5.5"
-scikit-learn = "^1.5.2"
-tqdm = "^4.66.5"
-opencv-python-headless = "^4.10.0.84"
-av = "^14.0.0"
-imageio = "^2.36.1"
-pyyaml = "^6.0.2"
-
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fluentrobotics"]
 
 
 [tool.mypy]

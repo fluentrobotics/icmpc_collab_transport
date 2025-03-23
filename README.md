@@ -1,7 +1,7 @@
 # Implicit Communication in Human-Robot Collaborative Transport
 
 [![acm](https://img.shields.io/badge/Paper-gray?logo=acm&labelColor=0085CA)](https://dl.acm.org/doi/10.5555/3721488.3721496)
-[![dataset](https://img.shields.io/badge/Dataset-gray?logo=dropbox&labelColor=0061FF)](https://www.dropbox.com/scl/fo/ruzihfyim9n5wx3kcluc6/APV1wxgUifVPQnd12RSqjbo?rlkey=u1d4pdei9jruil1bl4j0fxkmf&st=1e7mman0&dl=0)
+[![dataset](https://img.shields.io/badge/Study_Data-gray?logo=dropbox&labelColor=0061FF)](https://www.dropbox.com/scl/fo/ruzihfyim9n5wx3kcluc6/APV1wxgUifVPQnd12RSqjbo?rlkey=u1d4pdei9jruil1bl4j0fxkmf&st=1e7mman0&dl=0)
 [![video](https://img.shields.io/badge/Supplemental_Video-gray?logo=youtube&labelColor=ff0033)](https://youtu.be/0NTDrobSifg)
 
 ## Requirements
@@ -9,13 +9,13 @@
 ### Core
 
 * Python 3.10
-* Poetry package manager
-* ~10 GB disk space for Python packages
+* uv package manager
+* ~2 GB disk space for Python packages
 
 ### Extra Dependencies for Deployment and Data Analysis
 
 * ROS 2 Humble (Ubuntu 22.04)
-* GNU tar, zstd, and ~20 GB disk space for dataset
+* GNU tar, zstd, and ~16 GB disk space for study data
 
 ## Setup
 
@@ -24,7 +24,7 @@
 Install Python package dependencies to a virtual environment:
 
 ```shell
-poetry install
+uv sync --all-groups
 ```
 
 Activate the virtual environment:
@@ -33,11 +33,11 @@ Activate the virtual environment:
 source .venv/bin/activate
 ```
 
-### Dataset
+### Study Data
 
-Download `rosbags.tar.zst` from the Dropbox Dataset link in this file's header into [`data/fluentrobotics`](data/fluentrobotics).
+Download `rosbags.tar.zst` from the Dropbox Study Data link in this file's header into [`data/fluentrobotics`](data/fluentrobotics).
 
-Decompress the tar file:
+Extract the tar file:
 
 ```shell
 cd data/fluentrobotics

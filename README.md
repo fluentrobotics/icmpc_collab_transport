@@ -1,8 +1,7 @@
 # Implicit Communication in Human-Robot Collaborative Transport
 
-[![arxiv](https://img.shields.io/badge/Preprint-gray?logo=arxiv&labelColor=B31B1B)
-](https://arxiv.org/abs/2502.03346)
-[![dataset](<https://img.shields.io/badge/Dataset-gray?logo=dropbox&labelColor=0061FF>)](https://www.dropbox.com/scl/fo/ruzihfyim9n5wx3kcluc6/APV1wxgUifVPQnd12RSqjbo?rlkey=u1d4pdei9jruil1bl4j0fxkmf&st=1e7mman0&dl=0)
+[![acm](https://img.shields.io/badge/Paper-gray?logo=acm&labelColor=0085CA)](https://dl.acm.org/doi/10.5555/3721488.3721496)
+[![dataset](https://img.shields.io/badge/Dataset-gray?logo=dropbox&labelColor=0061FF)](https://www.dropbox.com/scl/fo/ruzihfyim9n5wx3kcluc6/APV1wxgUifVPQnd12RSqjbo?rlkey=u1d4pdei9jruil1bl4j0fxkmf&st=1e7mman0&dl=0)
 [![video](https://img.shields.io/badge/Supplemental_Video-gray?logo=youtube&labelColor=ff0033)](https://youtu.be/0NTDrobSifg)
 
 ## Requirements
@@ -82,10 +81,11 @@ tar xf rosbags.tar.zst
 ## Citation
 
 ```bibtex
-@article{yang2025implicit,
-  title={Implicit Communication in Human-Robot Collaborative Transport},
+@inproceedings{yang2025implicit,
   author={Yang, Elvin and Mavrogiannis, Christoforos},
-  journal={arXiv preprint arXiv:2502.03346},
-  year={2025}
+  title={Implicit Communication in Human-Robot Collaborative Transport},
+  year={2025},
+  booktitle = {Proceedings of the 2025 ACM/IEEE International Conference on Human-Robot Interaction},
+  pages = {23–33},
 }
 ```

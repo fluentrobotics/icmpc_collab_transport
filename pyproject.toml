@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Implicit Communication in Human-Robot Collaborative Transport"
 authors = [{ name = "Elvin Yang", email = "eyy@umich.edu" }]
 readme = "README.md"
-requires-python = "~=3.10"
+requires-python = "~=3.10.0"
 dependencies = [
     "numpy~=1.26",   # Numba 0.60 does not support numpy 2.0
     "scipy~=1.15",
